@@ -42,7 +42,8 @@ export const BalanceProvider = ({ children }) => {
       amount: typeof entry.amount === 'number' ? { value: entry.amount, currency: entry.currency || balance.currency } : entry.amount,
       dateTime: entry.dateTime || new Date().toISOString(),
       txnId: entry.txnId ?? null,
-      note: entry.note ?? ''
+      note: entry.note ?? '',
+      lastTransactionTime: entry.lastTransactionTime || new Date().toISOString()
     };
     setHistory((prev) => [...prev, newEntry]);
     return newEntry;
@@ -116,6 +117,24 @@ export const BalanceProvider = ({ children }) => {
   const getTotalIncome = () => history.filter((h) => h.type === 'income').reduce((s, e) => s + (e.amount?.value || 0), 0);
   const getTotalExpense = () => history.filter((h) => h.type === 'expense').reduce((s, e) => s + (e.amount?.value || 0), 0);
   const getNet = () => (balance?.value ?? 0);
+  
+  // Calculate potential balance (all non-abandoned transactions)
+  const calculatePotentialBalance = (transactions = []) => {
+    const nonAbandoned = transactions.filter((t) => !t.abandonment_status);
+    const total = nonAbandoned.reduce((acc, txn) => {
+      const val = txn.amount?.value ?? 0;
+      return txn.type === true ? acc + val : acc - val;
+    }, 0);
+    return total;
+  };
+  
+  // Get the time of the last committed transaction
+  const getLastCommittedTransactionTime = (transactions = []) => {
+    const committed = transactions.filter((t) => t.status === true);
+    if (committed.length === 0) return null;
+    const sortedByTime = committed.sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime));
+    return sortedByTime[0]?.dateTime || null;
+  };
 
   return (
     <BalanceContext.Provider
@@ -133,6 +152,8 @@ export const BalanceProvider = ({ children }) => {
         getTotalIncome,
         getTotalExpense,
         getNet,
+        calculatePotentialBalance,
+        getLastCommittedTransactionTime,
       }}
     >
       {children}

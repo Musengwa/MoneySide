@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import {
-    Alert,
-    FlatList,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
+  Alert,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
 import { BalanceContext } from '../context/BalanceContext';
 import { TransactionContext } from '../context/TransactionContext';
@@ -162,12 +162,6 @@ const TransactionList = () => {
             Committed
           </Text>
         </TouchableOpacity>
-      </View>
-
-      {/* Balances (console also shows) */}
-      <View style={styles.balances}>
-        <Text style={styles.balanceText}>Potential Balance (uncommitted + committed): {potentialBalance}</Text>
-        <Text style={styles.balanceText}>Actual Balance (committed only): {actualBalance}</Text>
       </View>
 
       {/* List */}
