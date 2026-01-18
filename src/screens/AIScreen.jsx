@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function AnalysisScreen() {
+export default function AIScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>📊 Analysis</Text>
+      <Text style={styles.title}>🤖 AI Consultant</Text>
       <Text style={styles.placeholder}>Coming soon...</Text>
     </View>
   );
