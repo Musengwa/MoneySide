@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { BalanceContext } from '../context/BalanceContext';
 import { TransactionContext } from '../context/TransactionContext';
 
@@ -31,29 +31,43 @@ const BalanceComponent = () => {
   };
 
   return (
-    <View style={styles.container}>
-      {/* Main Balance */}
-      <Text style={styles.balanceAmount}>{formatCurrency(balance.value, balance.currency)}</Text>
+    <ImageBackground 
+      source={require('../../assets/balance-bg.png')} 
+      style={styles.container}
+      imageStyle={styles.backgroundImage}
+    >
+      <View style={styles.overlay}>
+        {/* Main Balance */}
+        <Text style={styles.balanceAmount}>{formatCurrency(balance.value, balance.currency)}</Text>
 
-      {/* Potential Balance */}
-      <Text style={styles.potentialBalance}>Potential: {formatCurrency(potentialBalance, balance.currency)}</Text>
+        {/* Potential Balance */}
+        <Text style={styles.potentialBalance}>Potential: {formatCurrency(potentialBalance, balance.currency)}</Text>
 
-      {/* Last Update Date */}
-      <Text style={styles.lastUpdate}>Last updated: {formatDateTime(lastCommittedTime)}</Text>
-    </View>
+        {/* Last Update Date */}
+        <Text style={styles.lastUpdate}>Last updated: {formatDateTime(lastCommittedTime)}</Text>
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFFFF',
     borderRadius: 12,
+    borderColor: '#5a5a5a55',
+    borderWidth: 0.5,
     padding: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3
+    elevation: 3,
+    overflow: 'hidden'
+  },
+  backgroundImage: {
+    borderRadius: 12
+  },
+  overlay: {
+    backgroundColor: 'rgba(12, 12, 12, 0.5)'
   },
   balanceAmount: {
     fontSize: 32,

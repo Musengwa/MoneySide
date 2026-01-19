@@ -128,7 +128,7 @@ const TransactionList = () => {
 
         <View style={styles.right}>
           <Text style={[styles.amount, item.type ? styles.income : styles.expense]}>
-            {(item.type ? '+' : '-') + (item.amount?.value ?? 0)} {item.amount?.currency ?? 'USD'}
+            {(item.type ? '+' : '-') + (item.amount?.value ?? 0)} {item.amount?.currency ?? 'ZMW'}
           </Text>
 
           {/* Commit button only for uncommitted transactions */}
@@ -151,7 +151,7 @@ const TransactionList = () => {
           onPress={() => setActiveTab('uncommitted')}
         >
           <Text style={[styles.tabText, activeTab === 'uncommitted' && styles.tabTextActive]}>
-            Awaiting (Uncommitted)
+            Budget
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -159,7 +159,7 @@ const TransactionList = () => {
           onPress={() => setActiveTab('committed')}
         >
           <Text style={[styles.tabText, activeTab === 'committed' && styles.tabTextActive]}>
-            Committed
+            spent
           </Text>
         </TouchableOpacity>
       </View>
@@ -185,12 +185,12 @@ const TransactionList = () => {
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 12 },
   tabs: { flexDirection: 'row', marginBottom: 12, borderRadius: 8, overflow: 'hidden' },
-  tab: { flex: 1, paddingVertical: 10, backgroundColor: '#f1f3f5', alignItems: 'center' },
-  tabActive: { backgroundColor: '#4f8cff' },
+  tab: { flex: 1, paddingVertical: 10, alignItems: 'center' },
+  tabActive: { borderBottomColor: "#357dc6ff" },
   tabText: { color: '#495057', fontWeight: '600' },
-  tabTextActive: { color: 'white', fontWeight: '700' },
+  tabTextActive: { color: '#4da2f8ff', fontWeight: '700', fontSize: 20 },
   balances: { marginBottom: 12, padding: 10, backgroundColor: '#f8f9fa', borderRadius: 8 },
-  balanceText: { fontSize: 14, color: '#2c3e50' },
+  balanceText: { fontSize: 14, color: '#d3d7daff' },
   itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',

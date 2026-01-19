@@ -23,7 +23,7 @@ const TransactionForm = ({ isVisible, onClose }) => {
     status: false,
     dateTime: new Date().toISOString(),
     necessity: { level: 0, description: '' },
-    amount: { value: 0, currency: 'USD' }
+    amount: { value: 0, currency: 'ZMW' }
   });
   
   const [showCategoryModal, setShowCategoryModal] = useState(false);
@@ -48,7 +48,7 @@ const TransactionForm = ({ isVisible, onClose }) => {
       status: false,
       dateTime: new Date().toISOString(),
       necessity: { level: 0, description: '' },
-      amount: { value: 0, currency: 'USD' }
+      amount: { value: 0, currency: 'ZMW' }
     });
   };
 
@@ -143,7 +143,7 @@ const TransactionForm = ({ isVisible, onClose }) => {
             style={styles.textInput}
             value={formData.amount.currency}
             onChangeText={(text) => updateNestedField('amount', 'currency', text)}
-            placeholder="Currency (e.g., USD)"
+            placeholder="Currency (e.g., ZMW)"
             returnKeyType="done"
           />
         </View>

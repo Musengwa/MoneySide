@@ -53,8 +53,11 @@ const NecessitySlider = ({ value, onValueChange, min = 0, max = 5 }) => {
   const updateValueFromGesture = (xPosition) => {
     if (containerWidth === 0) return;
 
-    const relativeX = Math.max(0, Math.min(xPosition, containerWidth));
-    const percentage = relativeX / containerWidth;
+    // Account for thumb width and get position relative to track
+    const thumbOffset = 18; // Half of thumb width (36/2)
+    const trackWidth = containerWidth - 36;
+    const relativeX = Math.max(0, Math.min(xPosition - thumbOffset, trackWidth));
+    const percentage = relativeX / trackWidth;
     const rawValue = min + percentage * (max - min);
     const newValue = Math.round(rawValue);
 
@@ -138,6 +141,9 @@ const NecessitySlider = ({ value, onValueChange, min = 0, max = 5 }) => {
         <View style={styles.discretePointsContainer}>
           {[...Array(max - min + 1)].map((_, index) => {
             const level = min + index;
+            const leftPosition = containerWidth > 0 
+              ? (index / (max - min)) * (containerWidth - 36)
+              : 0;
             return (
               <TouchableOpacity
                 key={level}
@@ -145,7 +151,7 @@ const NecessitySlider = ({ value, onValueChange, min = 0, max = 5 }) => {
                   styles.discretePoint,
                   { 
                     backgroundColor: getThumbColor(level),
-                    left: `${(index / (max - min)) * 100}%`
+                    left: leftPosition
                   }
                 ]}
                 onPress={() => handleThumbPress(level)}
@@ -243,11 +249,12 @@ const styles = StyleSheet.create({
   },
   discretePoint: {
     position: 'absolute',
-    width: 20,
-    height: 20,
-    borderRadius: 10,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
     backgroundColor: '#007bff',
-    marginLeft: -10, // Center the points
+    marginLeft: -6, // Center the points
+    marginTop: 14,
   },
   labelsContainer: {
     flexDirection: 'row',

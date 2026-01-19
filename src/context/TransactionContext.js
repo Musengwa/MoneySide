@@ -27,7 +27,7 @@ export const TransactionProvider = ({ children }) => {
       status: txn.status ?? false, // true = committed, false = uncommitted
       dateTime: txn.dateTime || new Date().toISOString(),
       necessity: txn.necessity || { level: 0, description: '' }, // You can define this structure further
-      amount: txn.amount || { value: 0, currency: 'USD' }, // You can define this structure further
+      amount: txn.amount || { value: 0, currency: 'ZMW' }, // You can define this structure further
       abandonment_status: false // Fixed as per requirement
     };
     

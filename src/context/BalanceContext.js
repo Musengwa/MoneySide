@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from 'react';
 export const BalanceContext = createContext();
 
 export const BalanceProvider = ({ children }) => {
-  const initialBalance = { value: 0, currency: 'USD' };
+  const initialBalance = { value: 0, currency: 'ZMW' };
   const [balance, setBalance] = useState(initialBalance);
   const [history, setHistory] = useState([]); // { id, type: 'income'|'expense'|'manual', amount: {value, currency}, dateTime, txnId? }
 
