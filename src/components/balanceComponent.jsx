@@ -50,7 +50,7 @@ const BalanceComponent = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({w
   container: {
     borderRadius: 12,
     borderColor: '#5a5a5a55',
