@@ -63,11 +63,11 @@ const BottomNav = ({ activeTab, onTabChange, onAddTransaction }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#1414141e',
     borderTopWidth: 1,
-    borderTopColor: '#E0E0E0',
+    borderTopColor: '#e0e0e01d',
     elevation: 25,
-    shadowColor: '#000',
+    shadowColor: '#0000003c',
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,

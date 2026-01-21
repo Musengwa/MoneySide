@@ -32,7 +32,7 @@ const BalanceComponent = () => {
 
   return (
     <ImageBackground 
-      source={require('../../assets/balance-bg.png')} 
+      source={require('../images/balanceBG.jpeg')} 
       style={styles.container}
       imageStyle={styles.backgroundImage}
     >
@@ -50,7 +50,7 @@ const BalanceComponent = () => {
   );
 };
 
-const styles = StyleSheet.create({w
+const styles = StyleSheet.create({
   container: {
     borderRadius: 12,
     borderColor: '#5a5a5a55',
