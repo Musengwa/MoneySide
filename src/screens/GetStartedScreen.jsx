@@ -92,7 +92,7 @@ const GetStartedScreen = ({ navigation, onComplete }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0a0e27',
+    backgroundColor: '#000000',
   },
   orbBackground: {
     position: 'absolute',
