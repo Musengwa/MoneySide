@@ -1,6 +1,25 @@
-# Welcome to your Expo app 👋
+# Money Side 💰
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A comprehensive mobile financial management app built with [Expo](https://expo.dev) and React Native.
+
+## About the App
+
+Money Side is a personal finance tracker designed to help you manage your money effectively. The app enables you to:
+
+- **Track Transactions**: Record and categorize your income and expenses
+- **Monitor Balance**: Keep track of your current financial balance in real-time
+- **Analyze Spending**: Visualize your financial patterns with detailed analysis
+- **Smart Insights**: Leverage AI-powered analytics to understand your spending habits
+- **Secure Storage**: Local storage and cloud synchronization with Supabase for data security
+- **Cross-Platform**: Works seamlessly on Android, iOS, and web platforms
+
+### Key Features
+
+- 📊 **Transaction Management**: Easy-to-use forms for adding and managing transactions
+- 💡 **AI Analysis**: Machine learning engine for financial insights and recommendations
+- 🔐 **Secure Data**: Auto-sync to cloud database with local offline support
+- ⚙️ **Customization**: Personalized settings and profile management
+- 📱 **Responsive Design**: Optimized UI for all screen sizes
 
 ## Get started
 
